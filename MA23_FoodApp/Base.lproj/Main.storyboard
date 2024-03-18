@@ -1,24 +1,105 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22684"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="MA23_FoodApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Yfg-Rm-zIw">
+                                <rect key="frame" x="16" y="185" width="361" height="34"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="34" id="dbM-JN-aGr"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add Recipe" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2m8-UZ-QZO">
+                                <rect key="frame" x="16" y="96" width="361" height="35"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="35" id="yQq-2B-eKf"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="32"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="kpE-WA-sna">
+                                <rect key="frame" x="16" y="445" width="361" height="128"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="128" id="64S-KR-94O"/>
+                                </constraints>
+                                <color key="textColor" systemColor="labelColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oeh-m4-q56">
+                                <rect key="frame" x="0.0" y="52" width="393" height="44"/>
+                            </navigationBar>
+                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GSJ-Br-ZLq">
+                                <rect key="frame" x="0.0" y="233" width="393" height="216"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="yHJ-34-u2v"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="ZeZ-vq-FHY"/>
+                                </connections>
+                            </pickerView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d2N-Mz-3UJ">
+                                <rect key="frame" x="166" y="649" width="61" height="35"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Save"/>
+                                <connections>
+                                    <action selector="saveButtonPress:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ywk-Gj-gH1"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="kpE-WA-sna" firstAttribute="trailing" secondItem="Yfg-Rm-zIw" secondAttribute="trailing" id="7t4-7m-ejX"/>
+                            <constraint firstItem="2m8-UZ-QZO" firstAttribute="top" secondItem="oeh-m4-q56" secondAttribute="bottom" id="8fH-rW-JmY"/>
+                            <constraint firstItem="2m8-UZ-QZO" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="37" id="Ahm-sQ-hM1"/>
+                            <constraint firstItem="Yfg-Rm-zIw" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="CBc-l9-GVT"/>
+                            <constraint firstItem="oeh-m4-q56" firstAttribute="trailing" secondItem="GSJ-Br-ZLq" secondAttribute="trailing" id="FRI-f8-0kl"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="kpE-WA-sna" secondAttribute="bottom" constant="245" id="FVe-12-bMO"/>
+                            <constraint firstItem="Yfg-Rm-zIw" firstAttribute="top" secondItem="2m8-UZ-QZO" secondAttribute="bottom" constant="54" id="IDA-ex-l22"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="2m8-UZ-QZO" secondAttribute="trailing" constant="16" id="Jrm-fH-cMy"/>
+                            <constraint firstItem="kpE-WA-sna" firstAttribute="leading" secondItem="Yfg-Rm-zIw" secondAttribute="leading" id="Kvt-6w-PF2"/>
+                            <constraint firstItem="GSJ-Br-ZLq" firstAttribute="top" secondItem="Yfg-Rm-zIw" secondAttribute="bottom" constant="14" id="Y2h-ya-Pk0"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Yfg-Rm-zIw" secondAttribute="trailing" constant="16" id="YHr-fk-ahe"/>
+                            <constraint firstItem="oeh-m4-q56" firstAttribute="leading" secondItem="GSJ-Br-ZLq" secondAttribute="leading" id="gbP-Nh-g6R"/>
+                            <constraint firstItem="GSJ-Br-ZLq" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="nir-Wi-IEa"/>
+                            <constraint firstItem="GSJ-Br-ZLq" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="pez-jR-HrV"/>
+                            <constraint firstItem="2m8-UZ-QZO" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="qd0-Ru-gJ1"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="categoriePicker" destination="GSJ-Br-ZLq" id="XoR-Ia-5GH"/>
+                        <outlet property="recipeDescriptionTextView" destination="kpE-WA-sna" id="gmh-2V-I3H"/>
+                        <outlet property="recipeNameTextField" destination="Yfg-Rm-zIw" id="QV9-Rg-2nX"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="90.839694656488547" y="-34.507042253521128"/>
         </scene>
     </scenes>
+    <resources>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
 </document>
