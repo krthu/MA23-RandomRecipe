@@ -7,10 +7,9 @@
 
 import UIKit
 
-class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
+class AddRecipeViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
     
-    let book = RecipeBook()
-    var selectedCategory: String?
+    var book = RecipeBook()
     @IBOutlet weak var recipeDescriptionTextView: UITextView!
     
     @IBOutlet weak var categoriePicker: UIPickerView!
@@ -21,11 +20,7 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
         addBorderToTextView(textView: recipeDescriptionTextView)
         recipeNameTextField.layer.borderColor = UIColor.lightGray.cgColor
         
-        
-        let recipe = Recipe(name: "Fisk och potatis", category: "Fisk", description: "Fisk är gott ibland")
-        
-        book.recipes.append(recipe)
-        book.recipes.append(Recipe(name: "Svamppaj", category: "Svamt", description: "Svamp är också gott"))
+
         
 
 
@@ -38,9 +33,10 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
            let description = recipeDescriptionTextView.text{
             if !name.isEmpty && !description.isEmpty{
                 let recipe = Recipe(name: name, category: category, description: description)
-                book.recipes.append(recipe)
+                book.addRecipe(recipe: recipe)
                 print("recipie \(recipe) added")
                 clearForm()
+                print(book.getAmountOfRecipies())
             }
             
             
@@ -53,10 +49,6 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
         recipeDescriptionTextView.text = ""
         categoriePicker.selectRow(0, inComponent: 0, animated: true)
     }
-    
-    
-    
-    
     
     
     func addBorderToTextView(textView: UITextView){
@@ -78,9 +70,6 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
         return book.categories[row]
     }
     
-    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        selectedCategory = book.categories[row]
-    }
     
 
 }

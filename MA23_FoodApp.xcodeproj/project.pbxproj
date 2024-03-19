@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		6D35E9C42BA836F300699588 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D35E9C32BA836F300699588 /* AppDelegate.swift */; };
 		6D35E9C62BA836F300699588 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D35E9C52BA836F300699588 /* SceneDelegate.swift */; };
-		6D35E9C82BA836F300699588 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D35E9C72BA836F300699588 /* ViewController.swift */; };
+		6D35E9C82BA836F300699588 /* AddRecipeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D35E9C72BA836F300699588 /* AddRecipeViewController.swift */; };
 		6D35E9CB2BA836F300699588 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 6D35E9CA2BA836F300699588 /* Base */; };
 		6D35E9CD2BA836F500699588 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6D35E9CC2BA836F500699588 /* Assets.xcassets */; };
 		6D35E9D02BA836F500699588 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 6D35E9CF2BA836F500699588 /* Base */; };
@@ -18,6 +18,8 @@
 		6D35E9E72BA836F500699588 /* MA23_FoodAppUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D35E9E62BA836F500699588 /* MA23_FoodAppUITestsLaunchTests.swift */; };
 		6D35E9F42BA8378C00699588 /* Recipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D35E9F32BA8378C00699588 /* Recipe.swift */; };
 		6D35E9F72BA8397D00699588 /* RecipeBook.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D35E9F62BA8397D00699588 /* RecipeBook.swift */; };
+		6D35E9F92BA8628A00699588 /* StartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D35E9F82BA8628A00699588 /* StartViewController.swift */; };
+		6D35E9FB2BA86D2300699588 /* FindRecipeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D35E9FA2BA86D2300699588 /* FindRecipeViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,7 +43,7 @@
 		6D35E9C02BA836F300699588 /* MA23_FoodApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MA23_FoodApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6D35E9C32BA836F300699588 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6D35E9C52BA836F300699588 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		6D35E9C72BA836F300699588 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		6D35E9C72BA836F300699588 /* AddRecipeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddRecipeViewController.swift; sourceTree = "<group>"; };
 		6D35E9CA2BA836F300699588 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		6D35E9CC2BA836F500699588 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6D35E9CF2BA836F500699588 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -53,6 +55,8 @@
 		6D35E9E62BA836F500699588 /* MA23_FoodAppUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MA23_FoodAppUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		6D35E9F32BA8378C00699588 /* Recipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recipe.swift; sourceTree = "<group>"; };
 		6D35E9F62BA8397D00699588 /* RecipeBook.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeBook.swift; sourceTree = "<group>"; };
+		6D35E9F82BA8628A00699588 /* StartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartViewController.swift; sourceTree = "<group>"; };
+		6D35E9FA2BA86D2300699588 /* FindRecipeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindRecipeViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,11 +110,13 @@
 				6D35E9F52BA8385B00699588 /* Models */,
 				6D35E9C32BA836F300699588 /* AppDelegate.swift */,
 				6D35E9C52BA836F300699588 /* SceneDelegate.swift */,
-				6D35E9C72BA836F300699588 /* ViewController.swift */,
+				6D35E9C72BA836F300699588 /* AddRecipeViewController.swift */,
 				6D35E9C92BA836F300699588 /* Main.storyboard */,
 				6D35E9CC2BA836F500699588 /* Assets.xcassets */,
 				6D35E9CE2BA836F500699588 /* LaunchScreen.storyboard */,
 				6D35E9D12BA836F500699588 /* Info.plist */,
+				6D35E9F82BA8628A00699588 /* StartViewController.swift */,
+				6D35E9FA2BA86D2300699588 /* FindRecipeViewController.swift */,
 			);
 			path = MA23_FoodApp;
 			sourceTree = "<group>";
@@ -272,11 +278,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6D35E9C82BA836F300699588 /* ViewController.swift in Sources */,
+				6D35E9C82BA836F300699588 /* AddRecipeViewController.swift in Sources */,
+				6D35E9FB2BA86D2300699588 /* FindRecipeViewController.swift in Sources */,
 				6D35E9C42BA836F300699588 /* AppDelegate.swift in Sources */,
 				6D35E9F72BA8397D00699588 /* RecipeBook.swift in Sources */,
 				6D35E9C62BA836F300699588 /* SceneDelegate.swift in Sources */,
 				6D35E9F42BA8378C00699588 /* Recipe.swift in Sources */,
+				6D35E9F92BA8628A00699588 /* StartViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
