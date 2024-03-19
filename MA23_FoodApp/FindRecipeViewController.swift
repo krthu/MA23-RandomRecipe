@@ -78,12 +78,12 @@ class FindRecipeViewController: UIViewController {
         
         for category in book.categories {
             let action = UIAlertAction(title: category, style: self.chosenCategory == category ? .destructive: .default) { [weak self] action in
-                if self?.chosenCategory == category{
-                    
-                    action.setValue(true, forKey: "preferred")
-                    let image = UIImage(named: "checkmark")
-                    action.setValue(image, forKey: "image")
-                }
+//                if self?.chosenCategory == category{
+//                    
+//                    action.setValue(true, forKey: "preferred")
+//                    let image = UIImage(named: "checkmark")
+//                    action.setValue(image, forKey: "image")
+             //   }
                 
                 self?.chosenCategory = category
                 self?.setCategory(category: category)
@@ -93,6 +93,11 @@ class FindRecipeViewController: UIViewController {
             
             alertController.addAction(action)
         }
+        let clearAction = UIAlertAction(title: "Clear", style: .default){ _ in
+            self.chosenCategory = nil
+            self.setCategory(category: "")
+        }
+        alertController.addAction(clearAction)
         
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
         alertController.addAction(cancelAction)
