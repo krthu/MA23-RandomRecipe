@@ -17,6 +17,7 @@ class StartViewController: UIViewController {
         super.viewDidLoad()
         book.loadRecipes()
         print(book.getAmountOfRecipies())
+        book.printAllRecipies()
         
 //        let recipe = Recipe(name: "Fisk och potatis", category: "Fisk", description: "Fisk är gott ibland")
 //        

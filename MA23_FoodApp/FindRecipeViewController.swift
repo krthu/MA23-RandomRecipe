@@ -34,10 +34,20 @@ class FindRecipeViewController: UIViewController {
     
     
     @IBAction func findRecipeButtonPress(_ sender: UIButton) {
-        let recipe = book.getRandomRecipe()
-        if let recipe = recipe {
-            addRecipeToUI(recipe: recipe)
+        
+        if let chosenCategory = chosenCategory {
+            let recipe = book.getRandomRecipe(inCategory: chosenCategory)
+            if let recipe = recipe {
+                addRecipeToUI(recipe: recipe)
+            }
+        }else{
+            let recipe = book.getRandomRecipe()
+            if let recipe = recipe {
+                addRecipeToUI(recipe: recipe)
+            }
         }
+        
+
        
     }
     @IBAction func selectCategoryButtonPress(_ sender: UIButton) {
@@ -67,15 +77,20 @@ class FindRecipeViewController: UIViewController {
         let alertController = UIAlertController(title: "Select Category", message: nil, preferredStyle: .actionSheet)
         
         for category in book.categories {
-            let action = UIAlertAction(title: category, style: .default) { [weak self] action in
+            let action = UIAlertAction(title: category, style: self.chosenCategory == category ? .destructive: .default) { [weak self] action in
                 if self?.chosenCategory == category{
+                    
                     action.setValue(true, forKey: "preferred")
                     let image = UIImage(named: "checkmark")
                     action.setValue(image, forKey: "image")
                 }
+                
                 self?.chosenCategory = category
                 self?.setCategory(category: category)
             }
+            
+            
+            
             alertController.addAction(action)
         }
         

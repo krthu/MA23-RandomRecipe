@@ -19,6 +19,12 @@ class RecipeBook{
         return recipes.randomElement()
     }
     
+    func getRandomRecipe(inCategory: String) -> Recipe?{
+        let filteredRecipies = recipes.filter{$0.category == inCategory}
+        return filteredRecipies.randomElement()
+        
+    }
+    
     func addRecipe(recipe: Recipe){
         recipes.append(recipe)
         saveRecipeBookToUserDefaults()
@@ -39,6 +45,7 @@ class RecipeBook{
         }
     }
     
+    
     func loadRecipes(){
         if let data = UserDefaults.standard.data(forKey: defaultsKey){
             do{
@@ -48,6 +55,12 @@ class RecipeBook{
             } catch{
                 print("Error reading data", error)
             }
+        }
+    }
+    
+    func printAllRecipies(){
+        for recipe in recipes {
+            print(recipe)
         }
     }
 }
