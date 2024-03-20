@@ -18,6 +18,7 @@ class StartViewController: UIViewController {
         book.loadRecipes()
         print(book.getAmountOfRecipies())
         book.printAllRecipies()
+//        book.eraseUserDeafults()
         
 //        let recipe = Recipe(name: "Fisk och potatis", category: "Fisk", description: "Fisk är gott ibland")
 //        

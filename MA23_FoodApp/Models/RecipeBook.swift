@@ -25,6 +25,16 @@ class RecipeBook{
         
     }
     
+    func getRandomRecipe(mustIncludeIngredient: String) -> Recipe?{
+        let filterdRecipies = recipes.filter{ recipe in
+            return recipe.ingredients.contains{ ingredient in
+                return ingredient.lowercased() == mustIncludeIngredient.lowercased()
+                
+            }
+        }
+        return filterdRecipies.randomElement()
+    }
+    
     func addRecipe(recipe: Recipe){
         recipes.append(recipe)
         saveRecipeBookToUserDefaults()
@@ -63,4 +73,9 @@ class RecipeBook{
             print(recipe)
         }
     }
+    
+    func eraseUserDeafults(){
+        UserDefaults.standard.removeObject(forKey: defaultsKey)
+    }
+    
 }

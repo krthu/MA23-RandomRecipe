@@ -9,9 +9,12 @@ import UIKit
 
 class FindRecipeViewController: UIViewController {
     var book = RecipeBook()
+    
     @IBOutlet weak var recipeNameLable: UILabel!
     
 
+    @IBOutlet weak var mustIncludeIngredientTextView: UITextField!
+    @IBOutlet weak var ingredientContainer: UIStackView!
     @IBOutlet weak var categoryButton: UIButton!
     @IBOutlet weak var recipeDescriptionTextView: UITextView!
     @IBOutlet weak var recipeDescriptionLable: UILabel!
@@ -21,6 +24,10 @@ class FindRecipeViewController: UIViewController {
         
         super.viewDidLoad()
         print(book.getAmountOfRecipies())
+        recipeDescriptionTextView.layer.borderWidth = 1.0
+        recipeDescriptionTextView.layer.cornerRadius = 5.0
+        recipeDescriptionTextView.layer.borderColor = UIColor.lightGray.cgColor
+        
 //        updateMenu()
         
         // Do any additional setup after loading the view.
@@ -35,12 +42,23 @@ class FindRecipeViewController: UIViewController {
     
     @IBAction func findRecipeButtonPress(_ sender: UIButton) {
         
+        
         if let chosenCategory = chosenCategory {
             let recipe = book.getRandomRecipe(inCategory: chosenCategory)
             if let recipe = recipe {
                 addRecipeToUI(recipe: recipe)
             }
-        }else{
+        }else if let mustInclude = mustIncludeIngredientTextView.text{
+            let recipe = book.getRandomRecipe(mustIncludeIngredient: mustInclude)
+            if let recipe = recipe{
+                addRecipeToUI(recipe: recipe)
+            }
+            
+        }
+        
+        
+        
+        else{
             let recipe = book.getRandomRecipe()
             if let recipe = recipe {
                 addRecipeToUI(recipe: recipe)
@@ -55,6 +73,8 @@ class FindRecipeViewController: UIViewController {
         
         
     }
+    
+
     
 //    func updateMenu(){
 //        var menuActions: [UIAction] = []
@@ -107,13 +127,40 @@ class FindRecipeViewController: UIViewController {
     
     
     func addRecipeToUI(recipe: Recipe){
+        
+        removeIngredients()
+        
         recipeNameLable.text = recipe.name
         recipeCategoryLable.text = recipe.category
         recipeDescriptionTextView.text = recipe.description
+        for ingredient in recipe.ingredients {
+            addIngredientLabel(ingredient: ingredient)
+        }
+    }
+    
+    func removeIngredients(){
+        for label in ingredientContainer.arrangedSubviews{
+            ingredientContainer.removeArrangedSubview(label)
+            label.removeFromSuperview()
+        }
+    }
+    
+    func addIngredientLabel(ingredient: String){
+        let label = UILabel()
+        label.text = ingredient
+        label.textAlignment = .left
+        
+        label.layer.borderWidth = 1.0
+        label.layer.borderColor = UIColor.red.cgColor
+        ingredientContainer.addArrangedSubview(label)
+        ingredientContainer.layoutIfNeeded()
     }
     
     func setCategory(category: String){
         categoryButton.setTitle(category, for: .normal)
     }
-
+    @IBAction func backButtonPress(_ sender: Any) {
+        dismiss(animated: true, completion: nil)
+    }
+    
 }

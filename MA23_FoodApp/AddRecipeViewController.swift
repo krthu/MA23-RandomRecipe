@@ -12,27 +12,32 @@ class AddRecipeViewController: UIViewController, UIPickerViewDataSource, UIPicke
     var book = RecipeBook()
     @IBOutlet weak var recipeDescriptionTextView: UITextView!
     
+    @IBOutlet weak var ingredientsButton: UIButton!
     @IBOutlet weak var categoriePicker: UIPickerView!
     @IBOutlet weak var recipeNameTextField: UITextField!
+    var ingredients : [String] = []
+    let goToIngredientSegue = "toAddIngredientsSegue"
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         addBorderToTextView(textView: recipeDescriptionTextView)
         recipeNameTextField.layer.borderColor = UIColor.lightGray.cgColor
+        setIngredientsButtonText()
         
-
-        
-
-
     }
     
+    @IBAction func ingredientsButtonPress(_ sender: UIButton) {
+        performSegue(withIdentifier: goToIngredientSegue, sender: self)
+    }
     @IBAction func saveButtonPress(_ sender: UIButton) {
         let selectedRow = categoriePicker.selectedRow(inComponent: 0)
         let category = book.categories[selectedRow]
         if let name = recipeNameTextField.text,
            let description = recipeDescriptionTextView.text{
             if !name.isEmpty && !description.isEmpty{
-                let recipe = Recipe(name: name, category: category, description: description)
+                let recipe = Recipe(name: name, category: category, description: description, ingredients: ingredients)
                 book.addRecipe(recipe: recipe)
                 print("recipie \(recipe) added")
                 clearForm()
@@ -44,10 +49,16 @@ class AddRecipeViewController: UIViewController, UIPickerViewDataSource, UIPicke
         }
     }
     
+    func setIngredientsButtonText(){
+        ingredientsButton.setTitle("Ingredients: \(ingredients.count)", for: .normal)
+    }
+    
     func clearForm(){
         recipeNameTextField.text = ""
         recipeDescriptionTextView.text = ""
         categoriePicker.selectRow(0, inComponent: 0, animated: true)
+        ingredients = []
+        setIngredientsButtonText()
     }
     
     
@@ -70,7 +81,24 @@ class AddRecipeViewController: UIViewController, UIPickerViewDataSource, UIPicke
         return book.categories[row]
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == goToIngredientSegue{
+            if let destinationVC = segue.destination as? AddIngredientViewController{
+                destinationVC.ingredients = ingredients
+            }
+//        
+////        
+////        if let destinationVC = segue.destination{
+////            if
+        }
+    }
     
-
+  
+    @IBAction func unwindToParentViewController(_ unwindSegue: UIStoryboardSegue) {
+        if let fromVC = unwindSegue.source as? AddIngredientViewController{
+            ingredients = fromVC.ingredients
+            setIngredientsButtonText()
+        }
+    }
 }
 

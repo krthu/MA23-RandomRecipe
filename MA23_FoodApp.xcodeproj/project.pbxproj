@@ -20,6 +20,7 @@
 		6D35E9F72BA8397D00699588 /* RecipeBook.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D35E9F62BA8397D00699588 /* RecipeBook.swift */; };
 		6D35E9F92BA8628A00699588 /* StartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D35E9F82BA8628A00699588 /* StartViewController.swift */; };
 		6D35E9FB2BA86D2300699588 /* FindRecipeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D35E9FA2BA86D2300699588 /* FindRecipeViewController.swift */; };
+		6D35E9FD2BA9C40400699588 /* AddIngredientViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D35E9FC2BA9C40400699588 /* AddIngredientViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +58,7 @@
 		6D35E9F62BA8397D00699588 /* RecipeBook.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeBook.swift; sourceTree = "<group>"; };
 		6D35E9F82BA8628A00699588 /* StartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartViewController.swift; sourceTree = "<group>"; };
 		6D35E9FA2BA86D2300699588 /* FindRecipeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindRecipeViewController.swift; sourceTree = "<group>"; };
+		6D35E9FC2BA9C40400699588 /* AddIngredientViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddIngredientViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,6 +119,7 @@
 				6D35E9D12BA836F500699588 /* Info.plist */,
 				6D35E9F82BA8628A00699588 /* StartViewController.swift */,
 				6D35E9FA2BA86D2300699588 /* FindRecipeViewController.swift */,
+				6D35E9FC2BA9C40400699588 /* AddIngredientViewController.swift */,
 			);
 			path = MA23_FoodApp;
 			sourceTree = "<group>";
@@ -285,6 +288,7 @@
 				6D35E9C62BA836F300699588 /* SceneDelegate.swift in Sources */,
 				6D35E9F42BA8378C00699588 /* Recipe.swift in Sources */,
 				6D35E9F92BA8628A00699588 /* StartViewController.swift in Sources */,
+				6D35E9FD2BA9C40400699588 /* AddIngredientViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
