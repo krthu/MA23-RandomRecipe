@@ -41,32 +41,26 @@ class FindRecipeViewController: UIViewController {
     
     
     @IBAction func findRecipeButtonPress(_ sender: UIButton) {
-        
-        
-        if let chosenCategory = chosenCategory {
-            let recipe = book.getRandomRecipe(inCategory: chosenCategory)
-            if let recipe = recipe {
-                addRecipeToUI(recipe: recipe)
+        //print("Category: \(chosenCategory) Ingredient: \(mustIncludeIngredientTextView.text)")
+        var recipe: Recipe?
+        if let mustIncludeIngredient = mustIncludeIngredientTextView.text{
+            if !mustIncludeIngredient.isEmpty{
+                if let chosenCategory = chosenCategory{
+                    recipe = book.getRandomRecipe(withCategory: chosenCategory, mustIncludeIngredient: mustIncludeIngredient)
+                }else{
+                    recipe = book.getRandomRecipe(mustIncludeIngredient: mustIncludeIngredient)
+                }
+            } else if let chosenCategory = chosenCategory{
+                recipe = book.getRandomRecipe(withCategory: chosenCategory)
+            } else{
+                recipe = book.getRandomRecipe()
             }
-        }else if let mustInclude = mustIncludeIngredientTextView.text{
-            let recipe = book.getRandomRecipe(mustIncludeIngredient: mustInclude)
+            
             if let recipe = recipe{
                 addRecipeToUI(recipe: recipe)
             }
-            
         }
-        
-        
-        
-        else{
-            let recipe = book.getRandomRecipe()
-            if let recipe = recipe {
-                addRecipeToUI(recipe: recipe)
-            }
-        }
-        
-
-       
+    
     }
     @IBAction func selectCategoryButtonPress(_ sender: UIButton) {
         
@@ -150,8 +144,8 @@ class FindRecipeViewController: UIViewController {
         label.text = ingredient
         label.textAlignment = .left
         
-        label.layer.borderWidth = 1.0
-        label.layer.borderColor = UIColor.red.cgColor
+       // label.layer.borderWidth = 1.0
+       // label.layer.borderColor = UIColor.red.cgColor
         ingredientContainer.addArrangedSubview(label)
         ingredientContainer.layoutIfNeeded()
     }

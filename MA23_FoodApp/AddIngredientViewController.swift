@@ -28,6 +28,7 @@ class AddIngredientViewController: UIViewController {
         if let ingredient = addIngredientInput.text{
             ingredients.append(ingredient)
             addIngredientLabel(ingredient: ingredient)
+            addIngredientInput.text = ""
 //            let label = UILabel()
 //            label.text = ingredient
 //            label.textAlignment = .left
@@ -50,8 +51,8 @@ class AddIngredientViewController: UIViewController {
         label.text = ingredient
         label.textAlignment = .left
         
-        label.layer.borderWidth = 1.0
-        label.layer.borderColor = UIColor.red.cgColor
+     //   label.layer.borderWidth = 1.0
+     //   label.layer.borderColor = UIColor.red.cgColor
         ingredientContainer.addArrangedSubview(label)
         ingredientContainer.layoutIfNeeded()
     }
