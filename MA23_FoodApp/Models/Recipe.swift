@@ -6,10 +6,11 @@
 //
 
 import Foundation
-struct Recipe {
+struct Recipe: Codable {
     var name: String
     var category: String
     var description: String
+    var ingredients: [String]
     
 }
 
