@@ -7,12 +7,12 @@
 
 import UIKit
 
-class FindRecipeViewController: UIViewController {
+class FindRecipeViewController: UIViewController  {
     var book = RecipeBook()
     
     @IBOutlet weak var recipeNameLable: UILabel!
     
-
+    
     @IBOutlet weak var mustIncludeIngredientTextView: UITextField!
     @IBOutlet weak var ingredientContainer: UIStackView!
     @IBOutlet weak var categoryButton: UIButton!
@@ -20,6 +20,7 @@ class FindRecipeViewController: UIViewController {
     @IBOutlet weak var recipeDescriptionLable: UILabel!
     @IBOutlet weak var recipeCategoryLable: UILabel!
     var chosenCategory: String? = nil
+    
     override func viewDidLoad() {
         
         super.viewDidLoad()
@@ -28,7 +29,7 @@ class FindRecipeViewController: UIViewController {
         recipeDescriptionTextView.layer.cornerRadius = 5.0
         recipeDescriptionTextView.layer.borderColor = UIColor.lightGray.cgColor
         
-//        updateMenu()
+        //        updateMenu()
         
         // Do any additional setup after loading the view.
     }
@@ -37,6 +38,14 @@ class FindRecipeViewController: UIViewController {
     
     @IBAction func openCategoryMenuButtonPress(_ sender: Any) {
         displayCategoryMenu()
+//        guard let customPopupVC = storyboard?.instantiateViewController(withIdentifier: "CustomPopupViewController") as? CustomPopupViewController else {
+//            return
+//        }
+//        customPopupVC.modalPresentationStyle = .overCurrentContext // Visa den som en popup
+//        
+//        present(customPopupVC, animated: true, completion: nil)
+        
+        
     }
     
     
@@ -46,13 +55,17 @@ class FindRecipeViewController: UIViewController {
         if let mustIncludeIngredient = mustIncludeIngredientTextView.text{
             if !mustIncludeIngredient.isEmpty{
                 if let chosenCategory = chosenCategory{
+                    print("CheckBoth")
                     recipe = book.getRandomRecipe(withCategory: chosenCategory, mustIncludeIngredient: mustIncludeIngredient)
                 }else{
+                    print("Check ingredient")
                     recipe = book.getRandomRecipe(mustIncludeIngredient: mustIncludeIngredient)
                 }
             } else if let chosenCategory = chosenCategory{
                 recipe = book.getRandomRecipe(withCategory: chosenCategory)
+                print("Check category")
             } else{
+                print("Check none")
                 recipe = book.getRandomRecipe()
             }
             
@@ -60,7 +73,7 @@ class FindRecipeViewController: UIViewController {
                 addRecipeToUI(recipe: recipe)
             }
         }
-    
+        
     }
     @IBAction func selectCategoryButtonPress(_ sender: UIButton) {
         
@@ -68,23 +81,34 @@ class FindRecipeViewController: UIViewController {
         
     }
     
-
     
-//    func updateMenu(){
-//        var menuActions: [UIAction] = []
-//        for category in book.categories {
-//            let action = UIAction(title: category, handler: { action in
-//                self.chosenCategory = category
-//            })
-//            menuActions.append(action)
-//        }
-//        
-//        let menu = UIMenu(title: "Category", children: menuActions)
-//        
-//        categoryMenu = menu
-//        
-//        
-//    }
+    
+    //    func updateMenu(){
+    //        var menuActions: [UIAction] = []
+    //        for category in book.categories {
+    //            let action = UIAction(title: category, handler: { action in
+    //                self.chosenCategory = category
+    //            })
+    //            menuActions.append(action)
+    //        }
+    //
+    //        let menu = UIMenu(title: "Category", children: menuActions)
+    //
+    //        categoryMenu = menu
+    //
+    //
+    //    }
+    
+    //    func setupPickerView(){
+    //        pickerView.delegate = self
+    //        pickerView.dataSource = self
+    //        categoryInput.inputView = pickerView
+    //        categoryInput.inputAccessoryView = toolbar
+    //        let doneButton = UIBarButtonItem(title: "Done", style: .done, target: self, action: #selector(doneButtonTapped))
+    //        let spaceButton = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
+    //        toolbar.setItems([spaceButton, doneButton], animated: false)
+    //        toolbar.sizeToFit()
+    //    }
     
     
     func displayCategoryMenu() {
@@ -92,12 +116,6 @@ class FindRecipeViewController: UIViewController {
         
         for category in book.categories {
             let action = UIAlertAction(title: category, style: self.chosenCategory == category ? .destructive: .default) { [weak self] action in
-//                if self?.chosenCategory == category{
-//                    
-//                    action.setValue(true, forKey: "preferred")
-//                    let image = UIImage(named: "checkmark")
-//                    action.setValue(image, forKey: "image")
-             //   }
                 
                 self?.chosenCategory = category
                 self?.setCategory(category: category)
@@ -144,8 +162,8 @@ class FindRecipeViewController: UIViewController {
         label.text = ingredient
         label.textAlignment = .left
         
-       // label.layer.borderWidth = 1.0
-       // label.layer.borderColor = UIColor.red.cgColor
+        // label.layer.borderWidth = 1.0
+        // label.layer.borderColor = UIColor.red.cgColor
         ingredientContainer.addArrangedSubview(label)
         ingredientContainer.layoutIfNeeded()
     }
@@ -157,4 +175,38 @@ class FindRecipeViewController: UIViewController {
         dismiss(animated: true, completion: nil)
     }
     
+    
+    
+    
+    
+    
 }
+    
+    
+    class CustomPopupViewController: UIViewController {
+        
+        @IBOutlet weak var contentView: UIView! // Anpassad innehållsvy
+        
+        override func viewDidLoad() {
+            super.viewDidLoad()
+            
+            // Designa och anpassa utseendet på contentView
+            contentView.layer.cornerRadius = 10
+            contentView.layer.masksToBounds = true
+            contentView.backgroundColor = .white
+            
+            // Visa en animation för att rutan ska komma uppifrån
+            contentView.transform = CGAffineTransform(translationX: 0, y: view.bounds.height)
+            UIView.animate(withDuration: 0.5) {
+                self.contentView.transform = .identity
+            }
+        }
+        
+        @IBAction func closePopup(_ sender: UIButton) {
+            dismiss(animated: true, completion: nil)
+        }
+    }
+
+    
+    
+

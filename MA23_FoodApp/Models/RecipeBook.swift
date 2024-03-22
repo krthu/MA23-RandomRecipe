@@ -50,7 +50,7 @@ class RecipeBook{
     }
     
     func filterList(mustIncludeIngredient: String, list: [Recipe]) -> [Recipe]{
-        let filterdRecipies = recipes.filter{ recipe in
+        let filterdRecipies = list.filter{ recipe in
             return recipe.ingredients.contains{ ingredient in
                 return ingredient.lowercased() == mustIncludeIngredient.lowercased()
                 

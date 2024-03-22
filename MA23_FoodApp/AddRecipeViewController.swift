@@ -12,11 +12,15 @@ class AddRecipeViewController: UIViewController, UIPickerViewDataSource, UIPicke
     var book = RecipeBook()
     @IBOutlet weak var recipeDescriptionTextView: UITextView!
     
+    @IBOutlet weak var categoryInput: UITextField!
     @IBOutlet weak var ingredientsButton: UIButton!
-    @IBOutlet weak var categoriePicker: UIPickerView!
+ 
     @IBOutlet weak var recipeNameTextField: UITextField!
+    let pickerView = UIPickerView()
+    let toolbar = UIToolbar()
     var ingredients : [String] = []
     let goToIngredientSegue = "toAddIngredientsSegue"
+    
     
     
     override func viewDidLoad() {
@@ -25,6 +29,8 @@ class AddRecipeViewController: UIViewController, UIPickerViewDataSource, UIPicke
         addBorderToTextView(textView: recipeDescriptionTextView)
         recipeNameTextField.layer.borderColor = UIColor.lightGray.cgColor
         setIngredientsButtonText()
+        setupPickerView()
+
         
     }
     
@@ -32,9 +38,11 @@ class AddRecipeViewController: UIViewController, UIPickerViewDataSource, UIPicke
         performSegue(withIdentifier: goToIngredientSegue, sender: self)
     }
     @IBAction func saveButtonPress(_ sender: UIButton) {
-        let selectedRow = categoriePicker.selectedRow(inComponent: 0)
-        let category = book.categories[selectedRow]
+//        let selectedRow = categoriePicker.selectedRow(inComponent: 0)
+//        let category = book.categories[selectedRow]
+
         if let name = recipeNameTextField.text,
+          let category = categoryInput.text,
            let description = recipeDescriptionTextView.text{
             if !name.isEmpty && !description.isEmpty{
                 let recipe = Recipe(name: name, category: category, description: description, ingredients: ingredients)
@@ -43,9 +51,6 @@ class AddRecipeViewController: UIViewController, UIPickerViewDataSource, UIPicke
                 clearForm()
                 print(book.getAmountOfRecipies())
             }
-            
-            
-            
         }
     }
     
@@ -56,7 +61,8 @@ class AddRecipeViewController: UIViewController, UIPickerViewDataSource, UIPicke
     func clearForm(){
         recipeNameTextField.text = ""
         recipeDescriptionTextView.text = ""
-        categoriePicker.selectRow(0, inComponent: 0, animated: true)
+        //categoriePicker.selectRow(0, inComponent: 0, animated: true)
+        categoryInput.text = ""
         ingredients = []
         setIngredientsButtonText()
     }
@@ -90,10 +96,7 @@ class AddRecipeViewController: UIViewController, UIPickerViewDataSource, UIPicke
             if let destinationVC = segue.destination as? AddIngredientViewController{
                 destinationVC.ingredients = ingredients
             }
-//        
-////        
-////        if let destinationVC = segue.destination{
-////            if
+
         }
     }
     
@@ -103,6 +106,25 @@ class AddRecipeViewController: UIViewController, UIPickerViewDataSource, UIPicke
             ingredients = fromVC.ingredients
             setIngredientsButtonText()
         }
+    }
+    
+    func setupPickerView(){
+        pickerView.delegate = self
+        pickerView.dataSource = self
+        categoryInput.inputView = pickerView
+        categoryInput.inputAccessoryView = toolbar
+        let doneButton = UIBarButtonItem(title: "Done", style: .done, target: self, action: #selector(doneButtonTapped))
+        let spaceButton = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
+        toolbar.setItems([spaceButton, doneButton], animated: false)
+        toolbar.sizeToFit()
+    }
+    
+    @objc func doneButtonTapped() {
+        // Dölj UIPickerView genom att avsluta redigering av textfältet
+        let selectedRow = pickerView.selectedRow(inComponent: 0)
+        let selectedCategory = book.categories[selectedRow]
+        categoryInput.text = selectedCategory
+        categoryInput.endEditing(true)
     }
 }
 
