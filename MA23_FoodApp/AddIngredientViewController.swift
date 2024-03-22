@@ -16,7 +16,7 @@ class AddIngredientViewController: UIViewController, UITableViewDelegate, UITabl
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var inputStackConstraint: NSLayoutConstraint!
-    var defaultOnputStackContsraint: Double?
+    var defaultInputStackContsraint: Double?
     var ingredients : [String] = []
 
     
@@ -26,7 +26,7 @@ class AddIngredientViewController: UIViewController, UITableViewDelegate, UITabl
         
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(_:)), name: UIResponder.keyboardWillHideNotification, object: nil)
-        defaultOnputStackContsraint = inputStackConstraint.constant
+        defaultInputStackContsraint = inputStackConstraint.constant
         for ingredient in ingredients{
             addIngredientLabel(ingredient: ingredient)
         }
@@ -49,8 +49,13 @@ class AddIngredientViewController: UIViewController, UITableViewDelegate, UITabl
             let keyboardHeight = keyboardSize.height
             // Exempel: Flytta vyn uppåt med tangentbordets höjd
             //self.view.frame.origin.y -= keyboardHeight
-            inputStackConstraint.constant += keyboardHeight
+            if inputStackConstraint.constant == defaultInputStackContsraint{
+                inputStackConstraint.constant += keyboardHeight
+                
+            }
+
             print(inputStackConstraint.constant)
+            print(defaultInputStackContsraint)
         }
     }
 
@@ -60,7 +65,7 @@ class AddIngredientViewController: UIViewController, UITableViewDelegate, UITabl
             // Justera vyens position baserat på tangentbordets höjd
             let keyboardHeight = keyboardSize.height
             // Återställ vyens position till ursprungsläge
-            if let defaultOnputStackContsraint = defaultOnputStackContsraint{
+            if let defaultOnputStackContsraint = defaultInputStackContsraint{
                 inputStackConstraint.constant = defaultOnputStackContsraint
             }
 
