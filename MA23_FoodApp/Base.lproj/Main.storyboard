@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="0Xn-Pa-5ya">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="3dg-tt-tl8">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22684"/>
@@ -17,7 +17,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Digital RecipeBook" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7bc-ca-VXQ">
-                                <rect key="frame" x="16" y="101" width="361" height="36"/>
+                                <rect key="frame" x="16" y="145" width="361" height="36"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="36" id="z5u-Rb-wtq"/>
                                 </constraints>
@@ -62,14 +62,15 @@
                             <constraint firstItem="Oxc-Hq-YsB" firstAttribute="trailing" secondItem="7bc-ca-VXQ" secondAttribute="trailing" constant="16" id="np7-xn-3Bb"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="C2i-X8-yJ7"/>
                     <connections>
-                        <segue destination="BYZ-38-t0r" kind="presentation" identifier="toAddRecipeSegue" modalPresentationStyle="fullScreen" id="Zqn-oh-px5"/>
-                        <segue destination="LHn-6W-yq6" kind="presentation" identifier="toFindRecipeSegue" modalPresentationStyle="fullScreen" id="Ula-my-3H5"/>
+                        <segue destination="BYZ-38-t0r" kind="show" identifier="toAddRecipeSegue" id="Zqn-oh-px5"/>
+                        <segue destination="LHn-6W-yq6" kind="show" identifier="toFindRecipeSegue" id="Ula-my-3H5"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="j50-xM-e9f" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-750.38167938931292" y="-298.59154929577466"/>
+            <point key="canvasLocation" x="108" y="-312"/>
         </scene>
         <!--Find Recipe View Controller-->
         <scene sceneID="Gs9-MP-He8">
@@ -159,15 +160,6 @@
                                     <action selector="openCategoryMenuButtonPress:" destination="LHn-6W-yq6" eventType="touchUpInside" id="ne2-o0-luo"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iwM-og-3Fv">
-                                <rect key="frame" x="15.999999999999996" y="76" width="39.666666666666657" height="35"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" image="chevron.backward" catalog="system"/>
-                                <connections>
-                                    <action selector="backButtonPress:" destination="LHn-6W-yq6" eventType="touchUpInside" id="0vo-Yx-kVT"/>
-                                </connections>
-                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Must include:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v7h-dq-rQ6">
                                 <rect key="frame" x="16" y="702" width="71" height="14"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -185,6 +177,7 @@
                         <viewLayoutGuide key="safeArea" id="mqy-68-UWZ"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
+                    <navigationItem key="navigationItem" id="ZVB-eQ-Fhv"/>
                     <connections>
                         <outlet property="categoryButton" destination="HP6-Ni-gE3" id="D7Z-Am-UeM"/>
                         <outlet property="ingredientContainer" destination="mfl-UY-sVS" id="PvJ-nY-NqJ"/>
@@ -197,7 +190,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="q3C-Oo-La5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1461.8320610687022" y="-894.36619718309862"/>
+            <point key="canvasLocation" x="1036" y="-860"/>
         </scene>
         <!--Add Recipe View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -208,7 +201,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Yfg-Rm-zIw">
-                                <rect key="frame" x="16" y="189" width="361" height="34"/>
+                                <rect key="frame" x="16" y="202" width="361" height="34"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="34" id="dbM-JN-aGr"/>
                                 </constraints>
@@ -216,7 +209,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add Recipe" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2m8-UZ-QZO">
-                                <rect key="frame" x="16" y="100" width="361" height="35"/>
+                                <rect key="frame" x="16" y="113" width="361" height="35"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="35" id="yQq-2B-eKf"/>
                                 </constraints>
@@ -225,7 +218,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="kpE-WA-sna">
-                                <rect key="frame" x="16" y="313" width="361" height="128"/>
+                                <rect key="frame" x="16" y="326" width="361" height="128"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="128" id="seX-Q7-KDu"/>
@@ -235,10 +228,10 @@
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <navigationBar contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="oeh-m4-q56">
-                                <rect key="frame" x="0.0" y="56" width="393" height="44"/>
+                                <rect key="frame" x="0.0" y="69" width="393" height="44"/>
                             </navigationBar>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d2N-Mz-3UJ">
-                                <rect key="frame" x="166" y="493" width="61" height="35"/>
+                                <rect key="frame" x="166" y="506" width="61" height="35"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Save"/>
                                 <connections>
@@ -246,7 +239,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TvJ-bd-Tgu">
-                                <rect key="frame" x="221" y="449" width="145" height="35"/>
+                                <rect key="frame" x="221" y="462" width="145" height="35"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="145" id="3pl-HV-XmV"/>
                                 </constraints>
@@ -256,20 +249,8 @@
                                     <action selector="ingredientsButtonPress:" destination="BYZ-38-t0r" eventType="touchUpInside" id="921-9d-Wzs"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1GY-gP-Oeq">
-                                <rect key="frame" x="16" y="56" width="40" height="34.333333333333343"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="34.329999999999998" id="7SY-w6-Uac"/>
-                                    <constraint firstAttribute="width" constant="40" id="jHa-nH-JEl"/>
-                                </constraints>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" image="chevron.backward" catalog="system"/>
-                                <connections>
-                                    <action selector="backButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ebN-al-dzZ"/>
-                                </connections>
-                            </button>
                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Category" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Zv4-5Q-sEK">
-                                <rect key="frame" x="16" y="259" width="361" height="34"/>
+                                <rect key="frame" x="16" y="272" width="361" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
@@ -279,7 +260,7 @@
                         <constraints>
                             <constraint firstItem="kpE-WA-sna" firstAttribute="top" secondItem="Zv4-5Q-sEK" secondAttribute="bottom" constant="20" id="0a3-wA-DHS"/>
                             <constraint firstItem="2m8-UZ-QZO" firstAttribute="top" secondItem="oeh-m4-q56" secondAttribute="bottom" id="8fH-rW-JmY"/>
-                            <constraint firstItem="2m8-UZ-QZO" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="100" id="Ahm-sQ-hM1"/>
+                            <constraint firstItem="2m8-UZ-QZO" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="10" id="Ahm-sQ-hM1"/>
                             <constraint firstItem="Yfg-Rm-zIw" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="CBc-l9-GVT"/>
                             <constraint firstItem="Yfg-Rm-zIw" firstAttribute="top" secondItem="2m8-UZ-QZO" secondAttribute="bottom" constant="54" id="IDA-ex-l22"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="2m8-UZ-QZO" secondAttribute="trailing" constant="16" id="Jrm-fH-cMy"/>
@@ -289,27 +270,40 @@
                             <constraint firstItem="d2N-Mz-3UJ" firstAttribute="top" secondItem="TvJ-bd-Tgu" secondAttribute="bottom" constant="9" id="V3R-uq-QB2"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Zv4-5Q-sEK" secondAttribute="trailing" constant="16" id="VP6-AX-6H7"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Yfg-Rm-zIw" secondAttribute="trailing" constant="16" id="YHr-fk-ahe"/>
-                            <constraint firstItem="1GY-gP-Oeq" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="56" id="bNx-vG-zk9"/>
                             <constraint firstItem="TvJ-bd-Tgu" firstAttribute="top" secondItem="kpE-WA-sna" secondAttribute="bottom" constant="8" id="dNi-Ad-rWq"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="kpE-WA-sna" secondAttribute="trailing" constant="16" id="l1s-Ab-iEu"/>
                             <constraint firstItem="2m8-UZ-QZO" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="qd0-Ru-gJ1"/>
                             <constraint firstItem="d2N-Mz-3UJ" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="tZQ-Eq-hhi"/>
-                            <constraint firstItem="1GY-gP-Oeq" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="vQb-YJ-skA"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="1GY-gP-Oeq" secondAttribute="trailing" constant="337" id="yv9-HU-hzq"/>
                             <constraint firstItem="Zv4-5Q-sEK" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="zrz-N5-BG9"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="M99-tU-lzF"/>
                     <connections>
                         <outlet property="categoryInput" destination="Zv4-5Q-sEK" id="ucl-G0-sFx"/>
                         <outlet property="ingredientsButton" destination="TvJ-bd-Tgu" id="eC3-5R-RgC"/>
                         <outlet property="recipeDescriptionTextView" destination="kpE-WA-sna" id="gmh-2V-I3H"/>
                         <outlet property="recipeNameTextField" destination="Yfg-Rm-zIw" id="QV9-Rg-2nX"/>
-                        <segue destination="LlD-PT-KZl" kind="presentation" identifier="toAddIngredientsSegue" modalPresentationStyle="fullScreen" id="z1Q-KQ-eBM"/>
+                        <segue destination="LlD-PT-KZl" kind="show" identifier="toAddIngredientsSegue" id="z1Q-KQ-eBM"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="90.839694656488547" y="-34.507042253521128"/>
+            <point key="canvasLocation" x="1017.5572519083969" y="-34.507042253521128"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="CG1-Pr-kYI">
+            <objects>
+                <viewController id="vq3-wl-WFa" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="wgC-dS-8JA">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="ZYj-Zs-4vY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="OkD-j3-Trx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="650" y="702"/>
         </scene>
         <!--Add Ingredient View Controller-->
         <scene sceneID="YGk-Qa-CNQ">
@@ -320,7 +314,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="ZXK-4R-c9W">
-                                <rect key="frame" x="10" y="807.66666666666663" width="373" height="34.333333333333371"/>
+                                <rect key="frame" x="10" y="773.66666666666663" width="373" height="34.333333333333371"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cgF-Ys-Zr5">
                                         <rect key="frame" x="0.0" y="0.0" width="306" height="34.333333333333336"/>
@@ -337,20 +331,8 @@
                                     </button>
                                 </subviews>
                             </stackView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tEg-md-VC0">
-                                <rect key="frame" x="16" y="50" width="40" height="34.333333333333343"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="34.329999999999998" id="3P1-hw-Pch"/>
-                                    <constraint firstAttribute="width" constant="40" id="yGJ-BA-Ouc"/>
-                                </constraints>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" image="chevron.backward" catalog="system"/>
-                                <connections>
-                                    <segue destination="O84-o1-e3h" kind="unwind" unwindAction="unwindToParentViewController:" id="ttm-oL-7Cl"/>
-                                </connections>
-                            </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="eoL-dP-vTK">
-                                <rect key="frame" x="13" y="119" width="367" height="645"/>
+                                <rect key="frame" x="13" y="113" width="367" height="617"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" id="8hS-6Z-HaS">
@@ -372,16 +354,21 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="kpe-cB-JUn" firstAttribute="trailing" secondItem="ZXK-4R-c9W" secondAttribute="trailing" constant="10" id="S7v-Zo-xSl"/>
+                            <constraint firstItem="eoL-dP-vTK" firstAttribute="top" secondItem="kpe-cB-JUn" secondAttribute="top" constant="10" id="W4T-DM-wOV"/>
                             <constraint firstItem="ZXK-4R-c9W" firstAttribute="top" secondItem="eoL-dP-vTK" secondAttribute="bottom" constant="43.670000000000002" id="WCd-XF-WwI"/>
                             <constraint firstItem="kpe-cB-JUn" firstAttribute="trailing" secondItem="eoL-dP-vTK" secondAttribute="trailing" constant="13" id="Y38-fw-XyV"/>
                             <constraint firstItem="ZXK-4R-c9W" firstAttribute="leading" secondItem="kpe-cB-JUn" secondAttribute="leading" constant="10" id="fTO-86-Tg5"/>
-                            <constraint firstItem="tEg-md-VC0" firstAttribute="top" secondItem="kpe-cB-JUn" secondAttribute="top" constant="50" id="fd3-Vg-rdk"/>
-                            <constraint firstItem="tEg-md-VC0" firstAttribute="leading" secondItem="kpe-cB-JUn" secondAttribute="leading" constant="16" id="m0y-va-gqf"/>
-                            <constraint firstItem="eoL-dP-vTK" firstAttribute="top" secondItem="tEg-md-VC0" secondAttribute="bottom" constant="34.670000000000002" id="nc9-aO-JVi"/>
                             <constraint firstItem="kpe-cB-JUn" firstAttribute="bottom" secondItem="ZXK-4R-c9W" secondAttribute="bottom" constant="10" id="pYc-sv-p9R"/>
                             <constraint firstItem="eoL-dP-vTK" firstAttribute="leading" secondItem="kpe-cB-JUn" secondAttribute="leading" constant="13" id="qMf-dt-VpZ"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="oTg-Mg-BVY">
+                        <barButtonItem key="leftBarButtonItem" systemItem="done" id="E6l-u2-gWj">
+                            <connections>
+                                <segue destination="O84-o1-e3h" kind="unwind" unwindAction="unwindToParentViewController:" id="Pi3-LR-6b5"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="addIngredientInput" destination="cgF-Ys-Zr5" id="zMN-aI-BFn"/>
                         <outlet property="inputStackConstraint" destination="pYc-sv-p9R" id="8xs-Uw-ybI"/>
@@ -391,7 +378,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Kmo-dA-YZU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <exit id="O84-o1-e3h" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1104.5801526717557" y="-29.577464788732396"/>
+            <point key="canvasLocation" x="2031.2977099236641" y="-29.577464788732396"/>
         </scene>
         <!--Custom Popup View Controller-->
         <scene sceneID="SRd-Go-s4R">
@@ -411,11 +398,28 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1VS-si-Ve1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2388.5496183206105" y="-1439.4366197183099"/>
+            <point key="canvasLocation" x="2112" y="-1704"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="xTo-tL-rFa">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="3dg-tt-tl8" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Hwx-vD-8Zg">
+                        <rect key="frame" x="0.0" y="59" width="393" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="0Xn-Pa-5ya" kind="relationship" relationship="rootViewController" id="qZp-9c-eUU"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Oci-ha-BWq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-750.38167938931292" y="-298.59154929577466"/>
         </scene>
     </scenes>
     <resources>
-        <image name="chevron.backward" catalog="system" width="97" height="128"/>
         <image name="line.3.horizontal.decrease.circle" catalog="system" width="128" height="123"/>
         <image name="plus" catalog="system" width="128" height="113"/>
         <systemColor name="labelColor">

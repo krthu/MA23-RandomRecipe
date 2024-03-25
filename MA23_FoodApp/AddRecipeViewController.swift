@@ -87,10 +87,6 @@ class AddRecipeViewController: UIViewController, UIPickerViewDataSource, UIPicke
         return book.categories[row]
     }
     
-    @IBAction func backButtonPressed(_ sender: Any) {
-        dismiss(animated: true, completion: nil)
-        
-    }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == goToIngredientSegue{
             if let destinationVC = segue.destination as? AddIngredientViewController{

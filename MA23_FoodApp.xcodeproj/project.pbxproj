@@ -111,6 +111,7 @@
 		6D35E9C22BA836F300699588 /* MA23_FoodApp */ = {
 			isa = PBXGroup;
 			children = (
+				6DE15C482BB1B5C900776F68 /* New Group */,
 				6D35E9F52BA8385B00699588 /* Models */,
 				6D35E9C32BA836F300699588 /* AppDelegate.swift */,
 				6D35E9C52BA836F300699588 /* SceneDelegate.swift */,
@@ -151,6 +152,13 @@
 				6D35E9F62BA8397D00699588 /* RecipeBook.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		6DE15C482BB1B5C900776F68 /* New Group */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "New Group";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
