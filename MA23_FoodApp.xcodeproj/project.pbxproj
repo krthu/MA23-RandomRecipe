@@ -111,18 +111,14 @@
 		6D35E9C22BA836F300699588 /* MA23_FoodApp */ = {
 			isa = PBXGroup;
 			children = (
-				6DE15C482BB1B5C900776F68 /* New Group */,
+				6DE15C482BB1B5C900776F68 /* ViewControllers */,
 				6D35E9F52BA8385B00699588 /* Models */,
 				6D35E9C32BA836F300699588 /* AppDelegate.swift */,
 				6D35E9C52BA836F300699588 /* SceneDelegate.swift */,
-				6D35E9C72BA836F300699588 /* AddRecipeViewController.swift */,
 				6D35E9C92BA836F300699588 /* Main.storyboard */,
 				6D35E9CC2BA836F500699588 /* Assets.xcassets */,
 				6D35E9CE2BA836F500699588 /* LaunchScreen.storyboard */,
 				6D35E9D12BA836F500699588 /* Info.plist */,
-				6D35E9F82BA8628A00699588 /* StartViewController.swift */,
-				6D35E9FA2BA86D2300699588 /* FindRecipeViewController.swift */,
-				6D35E9FC2BA9C40400699588 /* AddIngredientViewController.swift */,
 				6DE15BC82BAC6C7A00776F68 /* IngredientTableViewCell.swift */,
 			);
 			path = MA23_FoodApp;
@@ -154,11 +150,15 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
-		6DE15C482BB1B5C900776F68 /* New Group */ = {
+		6DE15C482BB1B5C900776F68 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				6D35E9C72BA836F300699588 /* AddRecipeViewController.swift */,
+				6D35E9F82BA8628A00699588 /* StartViewController.swift */,
+				6D35E9FA2BA86D2300699588 /* FindRecipeViewController.swift */,
+				6D35E9FC2BA9C40400699588 /* AddIngredientViewController.swift */,
 			);
-			path = "New Group";
+			path = ViewControllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
