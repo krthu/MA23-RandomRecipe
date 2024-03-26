@@ -10,6 +10,7 @@ import UIKit
 class StartViewController: UIViewController {
     let toAddRecipeSegue = "toAddRecipeSegue"
     let toFindRecipeSegue = "toFindRecipeSegue"
+    let toRecipeTableViewSegue = "toRecipeTableViewSegue"
     let book = RecipeBook()
     
 
@@ -47,10 +48,11 @@ class StartViewController: UIViewController {
             if let destinationVC = segue.destination as? FindRecipeViewController{
                 destinationVC.book = book
             }
+        }else if segue.identifier == toRecipeTableViewSegue{
+            if let destinationVC = segue.destination as? RecipeTableViewController{
+                destinationVC.book = book
+            }
         }
     }
     
-    
-
-
 }
