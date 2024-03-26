@@ -9,6 +9,7 @@ import UIKit
 
 class RecipeTableViewController: UITableViewController {
     
+    
     var book : RecipeBook?
     let toDetailsRecipieSegue = "toRecipieDetailsSegue"
 
@@ -40,10 +41,13 @@ class RecipeTableViewController: UITableViewController {
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "recipeCell", for: indexPath)
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "recipeCell", for: indexPath) as? RecipeTableViewCell else {
+            fatalError("Unable to dequeue RecipeTableViewCell")
+        }
         let recipe = book?.getRecipe(atIndex: indexPath.row)
         print(recipe?.name)
-        cell.textLabel?.text = recipe?.name
+        cell.recipeName.text = recipe?.name
+        //cell.textLabel?.text = recipe?.name
         // Configure the cell...
 
         return cell

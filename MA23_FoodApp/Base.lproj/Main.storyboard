@@ -203,14 +203,40 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="recipeCell" id="TVB-LN-Vct">
-                                <rect key="frame" x="0.0" y="50" width="393" height="43.666667938232422"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="recipeCell" id="TVB-LN-Vct" customClass="RecipeTableViewCell" customModule="MA23_FoodApp" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="50" width="393" height="52.666667938232422"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="TVB-LN-Vct" id="IfJ-D7-Zvz">
-                                    <rect key="frame" x="0.0" y="0.0" width="393" height="43.666667938232422"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="393" height="52.666667938232422"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oyF-NM-W9g">
+                                            <rect key="frame" x="25" y="16" width="241" height="20.666666666666671"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="241" id="OFZ-6r-JpV"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hPT-Dc-QhJ">
+                                            <rect key="frame" x="325" y="5" width="48" height="42.666666666666664"/>
+                                            <color key="tintColor" systemColor="systemPinkColor"/>
+                                            <state key="normal" title="Button"/>
+                                            <buttonConfiguration key="configuration" style="plain" image="trash" catalog="system"/>
+                                        </button>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="bottomMargin" secondItem="oyF-NM-W9g" secondAttribute="bottom" constant="5" id="NBL-9X-9pF"/>
+                                        <constraint firstAttribute="trailing" secondItem="hPT-Dc-QhJ" secondAttribute="trailing" constant="20" symbolic="YES" id="elj-lR-Dfh"/>
+                                        <constraint firstAttribute="bottom" secondItem="hPT-Dc-QhJ" secondAttribute="bottom" constant="5" id="fbQ-AN-TCh"/>
+                                        <constraint firstItem="oyF-NM-W9g" firstAttribute="top" secondItem="IfJ-D7-Zvz" secondAttribute="topMargin" constant="5" id="ler-l1-JJT"/>
+                                        <constraint firstItem="hPT-Dc-QhJ" firstAttribute="top" secondItem="IfJ-D7-Zvz" secondAttribute="top" constant="5" id="q2Y-NS-GsR"/>
+                                        <constraint firstItem="oyF-NM-W9g" firstAttribute="leading" secondItem="IfJ-D7-Zvz" secondAttribute="leadingMargin" constant="5" id="ugM-B1-3FE"/>
+                                    </constraints>
                                 </tableViewCellContentView>
                                 <connections>
+                                    <outlet property="recipeName" destination="oyF-NM-W9g" id="Zsp-YK-rUt"/>
                                     <segue destination="GRn-ER-IHH" kind="show" identifier="toRecipieDetailsSegue" id="odO-1i-IS8"/>
                                 </connections>
                             </tableViewCell>
@@ -224,7 +250,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Eh5-ZV-PkN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="166" y="545"/>
+            <point key="canvasLocation" x="165.64885496183206" y="544.36619718309862"/>
         </scene>
         <!--Recipe Details View Controller-->
         <scene sceneID="o7R-8Q-NIQ">
@@ -541,6 +567,7 @@
     <resources>
         <image name="line.3.horizontal.decrease.circle" catalog="system" width="128" height="123"/>
         <image name="plus" catalog="system" width="128" height="113"/>
+        <image name="trash" catalog="system" width="117" height="128"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
@@ -549,6 +576,9 @@
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemPinkColor">
+            <color red="1" green="0.1764705882" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
