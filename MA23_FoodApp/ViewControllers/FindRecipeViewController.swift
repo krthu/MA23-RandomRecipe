@@ -171,9 +171,7 @@ class FindRecipeViewController: UIViewController  {
     func setCategory(category: String){
         categoryButton.setTitle(category, for: .normal)
     }
-    @IBAction func backButtonPress(_ sender: Any) {
-        dismiss(animated: true, completion: nil)
-    }
+
     
     
     

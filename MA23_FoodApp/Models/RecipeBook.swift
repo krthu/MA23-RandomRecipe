@@ -71,6 +71,20 @@ class RecipeBook{
         return recipes.count
     }
     
+    func getRecipe(atIndex: Int) -> Recipe? {
+        if atIndex >= 0 && atIndex < recipes.count{
+            return recipes[atIndex]
+        }
+        return nil
+    }
+    
+    func deleteRecipe(atIndex index: Int){
+        if index >= 0 && index < recipes.count{
+            recipes.remove(at: index)
+        }
+    }
+    
+    
     func saveRecipeBookToUserDefaults(){
         do{
             let encoder = JSONEncoder()
