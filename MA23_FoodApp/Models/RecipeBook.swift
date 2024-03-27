@@ -78,6 +78,12 @@ class RecipeBook{
         return nil
     }
     
+    func deleteRecipe(atIndex index: Int){
+        if index >= 0 && index < recipes.count{
+            recipes.remove(at: index)
+        }
+    }
+    
     
     func saveRecipeBookToUserDefaults(){
         do{

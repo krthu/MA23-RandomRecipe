@@ -15,7 +15,7 @@ class RecipeTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        print(book?.getAmountOfRecipies())
+ 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -45,8 +45,13 @@ class RecipeTableViewController: UITableViewController {
             fatalError("Unable to dequeue RecipeTableViewCell")
         }
         let recipe = book?.getRecipe(atIndex: indexPath.row)
-        print(recipe?.name)
-        cell.recipeName.text = recipe?.name
+
+        if let recipe = recipe {
+            cell.recipeName.text = recipe.name
+            cell.ingredientCountLabel.text = "\(recipe.ingredients.count) ingridents"
+            cell.categoryLabel.text = recipe.category
+        }
+
         //cell.textLabel?.text = recipe?.name
         // Configure the cell...
 
@@ -62,17 +67,19 @@ class RecipeTableViewController: UITableViewController {
     }
     */
 
-    /*
+    
     // Override to support editing the table view.
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             // Delete the row from the data source
+            book?.deleteRecipe(atIndex: indexPath.row)
+            book?.saveRecipeBookToUserDefaults()
             tableView.deleteRows(at: [indexPath], with: .fade)
         } else if editingStyle == .insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
         }    
     }
-    */
+    
 
     /*
     // Override to support rearranging the table view.

@@ -9,6 +9,8 @@ import UIKit
 
 class RecipeTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var categoryLabel: UILabel!
+    @IBOutlet weak var ingredientCountLabel: UILabel!
     @IBOutlet weak var recipeName: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
